@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Show Image</title>
+</head>
+<body>
+<h1>Show images</h1>
+    <script type="text/javascript">
+				setInterval(function () {
+					if (document.all) {
+						document.getElementById("submit_button").click();
+					}
+					else {
+						var e = document.createEvent("MouseEvents");
+						e.initEvent("click", true, true);
+						document.getElementById("submit_button").dispatchEvent(e);
+					}
+				}, 500);
+			</script>
+    <h1>situation: {{situation}}</h1>
+            <p>
+				<form action="http://localhost:5000" method="post">
+					<input id="submit_button" type="submit" name="submit_button" value="Manual mode">
+				</form>
+			<p> </p>
+    <img style="width:1800px" src="data:;base64, {{ img_stream }}">
+
+</body>
+</html>
